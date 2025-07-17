@@ -18,11 +18,11 @@ public class TestClient {
 
         try {
             PaperlessClient client = new PaperlessClient.Builder()
-                    .host("ilostthegame")
-                    .port(8000)
-                    .user("sysuer")
-                    .password("elo")
-                    .protocol("http")
+                    .host(System.getenv("PAPERLESS_HOST"))
+                    .port(System.getenv("PAPERLESS_PORT"))
+                    .user(System.getenv("PAPERLESS_USER"))
+                    .password(System.getenv("PAPERLESS_PW"))
+                    .protocol(System.getenv("PAPERLESS_PROTOCOL"))
                     .build();
             Assertions.assertTrue(true);
         } catch (IllegalStateException ex) {
@@ -35,11 +35,28 @@ public class TestClient {
         File file = new File("C:\\Users\\gerri\\Desktop\\King of Ordners\\2024_Ausbildungszeugnis.pdf");
 
         var client = new PaperlessClient.Builder()
-                .url("http://ilostthegame:8000/api/")
-                .user("sysuser")
-                .password("elo")
+                .host(System.getenv("PAPERLESS_HOST"))
+                .port(System.getenv("PAPERLESS_PORT"))
+                .user(System.getenv("PAPERLESS_USER"))
+                .password(System.getenv("PAPERLESS_PW"))
+                .protocol(System.getenv("PAPERLESS_PROTOCOL"))
                 .build();
 
         Assertions.assertNotEquals("", client.uploadDocument(file));
+    }
+
+    @Test
+    public void testFileDownload() throws Exception {
+        var client = new PaperlessClient.Builder()
+                .host(System.getenv("PAPERLESS_HOST"))
+                .port(System.getenv("PAPERLESS_PORT"))
+                .user(System.getenv("PAPERLESS_USER"))
+                .password(System.getenv("PAPERLESS_PW"))
+                .protocol(System.getenv("PAPERLESS_PROTOCOL"))
+                .build();
+
+        File file = client.downloadDocument("236");
+        Assertions.assertNotNull(file);
+        Assertions.assertTrue(file.exists());
     }
 }

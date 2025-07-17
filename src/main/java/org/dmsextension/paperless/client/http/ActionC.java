@@ -5,5 +5,6 @@ public enum ActionC {
     UPDATE,
     DELETE,
     SEARCH,
-    GET
+    GET,
+    DOWNLOAD
 }

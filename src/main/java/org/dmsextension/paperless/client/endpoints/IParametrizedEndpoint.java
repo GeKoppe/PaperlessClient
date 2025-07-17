@@ -20,4 +20,8 @@ public interface IParametrizedEndpoint extends IEndpoint {
      * @param params Params for the url
      */
     void urlParams(Map<String, String> params);
+
+    static boolean allParamsGiven(Map<String, String> params, List<String> needed) {
+        return params.keySet().containsAll(needed);
+    }
 }

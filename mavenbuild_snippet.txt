@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=".\target\PaperlessClient-0.1.0.jar" -Dgroupid="org.dmsextension.paperless.client" -Dartifactid="PaperlessClient" -Dversion="0.1.0" -Dpackaging="jar"

@@ -11,21 +11,57 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ * Default Paperless-ngx authentication interceptor. Gets the token for given user and password
+ * from the paperless api and adds the Authorization header to all calls.
+ */
 public class PaperlessInterceptor implements Interceptor {
+    /**
+     * Loggern
+     */
     private final Logger logger = LoggerFactory.getLogger(PaperlessInterceptor.class);
+    /**
+     * User
+     */
     private String user;
+    /**
+     * Password
+     */
     private String pw;
-    private String baseUrl;
+    /**
+     * Base url
+     */
+    private final String baseUrl;
+    /**
+     * Cache of all already retrieved tokens
+     */
     private static final HashMap<String, String> tokens = new HashMap<>();
+
+    /**
+     * Default constructor
+     * @param user User to authenticate at the paperless api
+     * @param pw Password to authenticate at the paperless api
+     * @param baseUrl Base url of the paperless api
+     */
     public PaperlessInterceptor(String user, String pw, String baseUrl) {
         this.pw = pw;
         this.user = user;
         this.baseUrl = baseUrl;
     }
 
+    /**
+     * Convenience class for parsing token responses
+     */
     private static class Token {
         public String token;
     }
+
+    /**
+     * Method to intercept the api calls and add Authorization token
+     * @param chain Chain of api call
+     * @return Modified chain with Authorization header
+     * @throws IOException Thrown, if no api token could be fetched
+     */
     @NotNull
     @Override
     public Response intercept(@NotNull Chain chain) throws IOException {
@@ -64,18 +100,34 @@ public class PaperlessInterceptor implements Interceptor {
         return chain.proceed(req);
     }
 
+    /**
+     * Gets user for authentication
+     * @return Username
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     * Sets user for authentication
+     * @param user Username
+     */
     public void setUser(String user) {
         this.user = user;
     }
 
+    /**
+     * Gets password for authentication
+     * @return Password
+     */
     public String getPw() {
         return pw;
     }
 
+    /**
+     * Sets password for authentication
+     * @param pw Password
+     */
     public void setPw(String pw) {
         this.pw = pw;
     }

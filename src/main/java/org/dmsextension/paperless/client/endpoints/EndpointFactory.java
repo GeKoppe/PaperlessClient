@@ -13,4 +13,8 @@ public class EndpointFactory {
     public static DocumentUploadEndpoint documentUploadEndpoint(@NotNull String baseUrl) {
         return new DocumentUploadEndpoint(baseUrl);
     }
+
+    public static DocumentDownloadEndpoint documentDownloadEndpoint(@NotNull String baseUrl) {
+        return new DocumentDownloadEndpoint(baseUrl);
+    }
 }

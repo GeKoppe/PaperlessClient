@@ -1,0 +1,5 @@
+org.dmsextension.paperless.client
+org.dmsextension.paperless.client.endpoints
+org.dmsextension.paperless.client.http
+org.dmsextension.paperless.client.templates
+org.dmsextension.paperless.client.utils
