@@ -4,14 +4,14 @@ package org.dmsextension.paperless.client.templates;
 import com.squareup.moshi.Json;
 
 public class TCustomFieldTemplate implements IDto {
-    private int id;
+    private Integer id;
     private String name;
     @Json(name="data_type")
     private String dataType;
     @Json(name="extra_data")
     private TExtraData extraData;
     @Json(name="document_count")
-    private int documentCount;
+    private Integer documentCount;
 
     public TCustomFieldTemplate() { }
 
@@ -44,11 +44,11 @@ public class TCustomFieldTemplate implements IDto {
                 '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -76,11 +76,11 @@ public class TCustomFieldTemplate implements IDto {
         this.extraData = extraData;
     }
 
-    public int getDocumentCount() {
+    public Integer getDocumentCount() {
         return documentCount;
     }
 
-    public void setDocumentCount(int documentCount) {
+    public void setDocumentCount(Integer documentCount) {
         this.documentCount = documentCount;
     }
 }

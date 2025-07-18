@@ -3,12 +3,12 @@ package org.dmsextension.paperless.client.templates;
 import com.squareup.moshi.Json;
 
 public class TDocumentType {
-    private int id;
+    private Integer id;
     private String slug;
     private String name;
     private String match;
     @Json(name="document_count")
-    private int documentCount;
+    private Integer documentCount;
 
     public TDocumentType() { }
 
@@ -23,11 +23,11 @@ public class TDocumentType {
                 '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,11 +55,11 @@ public class TDocumentType {
         this.match = match;
     }
 
-    public int getDocumentCount() {
+    public Integer getDocumentCount() {
         return documentCount;
     }
 
-    public void setDocumentCount(int documentCount) {
+    public void setDocumentCount(Integer documentCount) {
         this.documentCount = documentCount;
     }
 }

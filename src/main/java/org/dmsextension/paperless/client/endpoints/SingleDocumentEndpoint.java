@@ -15,6 +15,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * j
+ */
 public class SingleDocumentEndpoint extends ParameterEndpoint implements IParametrizedEndpoint {
     private final Logger logger = LoggerFactory.getLogger(SingleDocumentEndpoint.class);
     private static final List<MethodC> methods = new ArrayList<>(Arrays.asList(MethodC.PUT, MethodC.GET, MethodC.PATCH, MethodC.DELETE));
@@ -105,12 +108,12 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
     }
 
     @Override
-    public List<String> getParameters() {
+    public List<String> getPathParams() {
         return null;
     }
 
     @Override
-    public void urlParams(Map<String, String> params) {
+    public void pathParams(Map<String, String> params) {
 
     }
 }

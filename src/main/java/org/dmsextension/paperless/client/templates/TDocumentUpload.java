@@ -100,27 +100,27 @@ public class TDocumentUpload implements IDto {
         this.title = title;
     }
 
-    public int getCorrespondent() {
+    public Integer getCorrespondent() {
         return correspondent;
     }
 
-    public void setCorrespondent(int correspondent) {
+    public void setCorrespondent(Integer correspondent) {
         this.correspondent = correspondent;
     }
 
-    public int getDocumentType() {
+    public Integer getDocumentType() {
         return documentType;
     }
 
-    public void setDocumentType(int documentType) {
+    public void setDocumentType(Integer documentType) {
         this.documentType = documentType;
     }
 
-    public int getStoragePath() {
+    public Integer getStoragePath() {
         return storagePath;
     }
 
-    public void setStoragePath(int storagePath) {
+    public void setStoragePath(Integer storagePath) {
         this.storagePath = storagePath;
     }
 
@@ -132,11 +132,11 @@ public class TDocumentUpload implements IDto {
         this.tags = tags;
     }
 
-    public int getArchiveSerialNumber() {
+    public Integer getArchiveSerialNumber() {
         return archiveSerialNumber;
     }
 
-    public void setArchiveSerialNumber(int archiveSerialNumber) {
+    public void setArchiveSerialNumber(Integer archiveSerialNumber) {
         this.archiveSerialNumber = archiveSerialNumber;
     }
 

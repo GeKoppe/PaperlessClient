@@ -59,7 +59,7 @@ public class DocumentDownloadEndpoint extends ParameterEndpoint implements IPara
      */
     @Override
     public Request buildRequest() throws Exception {
-        if (this.urlParams == null || ! IParametrizedEndpoint.allParamsGiven(this.urlParams, params)) {
+        if (this.urlParams == null || ! IParametrizedEndpoint.allPathParamsGiven(this.urlParams, params)) {
             this.logger.info("No url params or not all needed were given prior to building request");
             throw new IllegalStateException("No url params or not all needed were given prior to building request");
         }
@@ -68,7 +68,7 @@ public class DocumentDownloadEndpoint extends ParameterEndpoint implements IPara
         Request.Builder builder = new Request.Builder();
         CustomHandlebars handlebars = new CustomHandlebars();
         Template t = handlebars.compileInline(completedUlr);
-        builder.url(t.apply(this.urlParams))
+        builder.url(t.apply(this.urlParams) + this.parseQuery())
                 .get();
         return builder.build();
     }
@@ -158,7 +158,7 @@ public class DocumentDownloadEndpoint extends ParameterEndpoint implements IPara
      * @return
      */
     @Override
-    public List<String> getParameters() {
+    public List<String> getPathParams() {
         return params;
     }
 
@@ -167,7 +167,7 @@ public class DocumentDownloadEndpoint extends ParameterEndpoint implements IPara
      * @param params Params for the url
      */
     @Override
-    public void urlParams(Map<String, String> params) {
+    public void pathParams(Map<String, String> params) {
         this.urlParams = params;
     }
 }

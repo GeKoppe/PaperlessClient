@@ -13,15 +13,21 @@ public interface IParametrizedEndpoint extends IEndpoint {
      * Used to get a list of all the parameters in the url
      * @return List of all parameters in url
      */
-    List<String> getParameters();
+    List<String> getPathParams();
 
     /**
      * Adds parameters for the url to the class
      * @param params Params for the url
      */
-    void urlParams(Map<String, String> params);
+    void pathParams(Map<String, String> params);
 
-    static boolean allParamsGiven(Map<String, String> params, List<String> needed) {
+    /**
+     * Checks if all values in needed are keys in params
+     * @param params Actual path params
+     * @param needed Needed path params
+     * @return True, if all params are given, false otherwise
+     */
+    static boolean allPathParamsGiven(Map<String, String> params, List<String> needed) {
         return params.keySet().containsAll(needed);
     }
 }

@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Implemented by all endpoint classes.
@@ -57,4 +58,6 @@ public interface IEndpoint {
      */
     void method(@NotNull MethodC method);
     // IDto bodyFromParams(HashMap<String, Object> params);
+
+    void query(@NotNull Map<String, String> query);
 }

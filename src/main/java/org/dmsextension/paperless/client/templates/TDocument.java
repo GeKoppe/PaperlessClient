@@ -7,8 +7,8 @@ import java.util.Objects;
 
 public class TDocument implements IDto {
 
-    private int analyzeTries = 0;
-    private int id;
+    private Integer analyzeTries = 0;
+    private Integer id;
     @Json(name="document_type")
     private String documentType;
     @Json(name="storage_path")
@@ -75,11 +75,11 @@ public class TDocument implements IDto {
         return Objects.hash(getId());
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -171,11 +171,11 @@ public class TDocument implements IDto {
         this.customFields = customFields;
     }
 
-    public int getAnalyzeTries() {
+    public Integer getAnalyzeTries() {
         return analyzeTries;
     }
 
-    public void setAnalyzeTries(int analyzeTries) {
+    public void setAnalyzeTries(Integer analyzeTries) {
         this.analyzeTries = analyzeTries;
     }
 

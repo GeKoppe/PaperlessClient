@@ -1,54 +1,111 @@
 package org.dmsextension.paperless.client.templates;
 
+import com.squareup.moshi.Json;
+
 import java.util.List;
 
-public class TSearchResult<T extends IDto> {
-    private int count;
-    private String next;
-    private String previous;
-    private List<T> results;
+public class TSearchResult implements IDto {
+    private Integer total;
+    private List<TDocument> documents;
+    @Json(name="custom_fields")
+    private List<TCustomFieldTemplate> customFields;
+    private List<TTag> tags;
+    private List<TCorrespondent> correspondents;
+    @Json(name="document_types")
+    private List<TDocumentType> documentTypes;
+    @Json(name="storage_paths")
+    private List<TStoragePath> storagePaths;
+    private List<TUser> users;
+    private List<TWorkflow> workflows;
+    @Json(name="saved_views")
+    private List<TSavedView> savedViews;
 
-    public TSearchResult() { }
 
+    public TSearchResult() {
+
+    }
     @Override
-    public String toString() {
-        return "TSearchResult{" +
-                "count=" + count +
-                ", next='" + next + '\'' +
-                ", previous='" + previous + '\'' +
-                ", results=" + results +
-                '}';
+    public String toJsonString() {
+        return null;
     }
 
-    public int getCount() {
-        return count;
+    public Integer getTotal() {
+        return total;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
-    public String getNext() {
-        return next;
+    public List<TDocument> getDocuments() {
+        return documents;
     }
 
-    public void setNext(String next) {
-        this.next = next;
+    public void setDocuments(List<TDocument> documents) {
+        this.documents = documents;
     }
 
-    public String getPrevious() {
-        return previous;
+    public List<TCustomFieldTemplate> getCustomFields() {
+        return customFields;
     }
 
-    public void setPrevious(String previous) {
-        this.previous = previous;
+    public void setCustomFields(List<TCustomFieldTemplate> customFields) {
+        this.customFields = customFields;
     }
 
-    public List<T> getResults() {
-        return results;
+    public List<TTag> getTags() {
+        return tags;
     }
 
-    public void setResults(List<T> results) {
-        this.results = results;
+    public void setTags(List<TTag> tags) {
+        this.tags = tags;
+    }
+
+    public List<TCorrespondent> getCorrespondents() {
+        return correspondents;
+    }
+
+    public void setCorrespondents(List<TCorrespondent> correspondents) {
+        this.correspondents = correspondents;
+    }
+
+    public List<TDocumentType> getDocumentTypes() {
+        return documentTypes;
+    }
+
+    public void setDocumentTypes(List<TDocumentType> documentTypes) {
+        this.documentTypes = documentTypes;
+    }
+
+    public List<TStoragePath> getStoragePaths() {
+        return storagePaths;
+    }
+
+    public void setStoragePaths(List<TStoragePath> storagePaths) {
+        this.storagePaths = storagePaths;
+    }
+
+    public List<TUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<TUser> users) {
+        this.users = users;
+    }
+
+    public List<TWorkflow> getWorkflows() {
+        return workflows;
+    }
+
+    public void setWorkflows(List<TWorkflow> workflows) {
+        this.workflows = workflows;
+    }
+
+    public List<TSavedView> getSavedViews() {
+        return savedViews;
+    }
+
+    public void setSavedViews(List<TSavedView> savedViews) {
+        this.savedViews = savedViews;
     }
 }

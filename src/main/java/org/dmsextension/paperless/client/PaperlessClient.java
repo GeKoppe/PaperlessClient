@@ -130,7 +130,7 @@ public class PaperlessClient {
         var endpoint = EndpointFactory.documentDownloadEndpoint(this.url);
 
         Map<String, String> map = new HashMap<>(Map.of("id", documentId));
-        endpoint.urlParams(map);
+        endpoint.pathParams(map);
 
         Request req = endpoint.buildRequest();
         TDocumentDownload result = null;

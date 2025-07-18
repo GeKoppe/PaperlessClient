@@ -1,20 +1,16 @@
 package org.dmsextension.paperless.client.endpoints;
 
 import org.dmsextension.paperless.client.PaperlessClient;
-import org.dmsextension.paperless.client.templates.IDto;
-import org.dmsextension.paperless.client.templates.TDocumentDownload;
-import org.dmsextension.paperless.client.templates.TDocumentUpload;
+import org.dmsextension.paperless.client.templates.*;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class TestEndpointFactory {
+public class TestEndpoints {
     private final PaperlessClient client = new PaperlessClient.Builder()
             .host(System.getenv("PAPERLESS_HOST"))
             .port(System.getenv("PAPERLESS_PORT"))
@@ -27,7 +23,7 @@ public class TestEndpointFactory {
     public void testDocumentDownloadEndpoint() throws Exception {
         var test = EndpointFactory.documentDownloadEndpoint(client.getUrl());
         Map<String, String> params =  new HashMap<>(Map.of("id", "236"));
-        test.urlParams(params);
+        test.pathParams(params);
         try {
             IDto dto = client.execute(test, null);
             Assertions.assertInstanceOf(TDocumentDownload.class, dto);
@@ -38,6 +34,22 @@ public class TestEndpointFactory {
         } catch (Exception ex) {
             fail();
         }
+    }
 
+    @Test
+    public void testSearchEndpoint() {
+        SearchEndpoint ep = new SearchEndpoint(this.client.getUrl());
+        ep.query(Map.of("query", "Rechnung"));
+        try {
+            IDto docs = this.client.execute(ep, null);
+            Assertions.assertInstanceOf(TSearchResult.class, docs);
+            TSearchResult result = (TSearchResult) docs;
+            Assertions.assertTrue(result.getTotal() > 0);
+            Assertions.assertFalse(result.getWorkflows().isEmpty());
+            Assertions.assertFalse(result.getStoragePaths().isEmpty());
+            // Assertions.assertFalse(result.getSavedViews().isEmpty());
+        } catch (Exception ex) {
+            fail();
+        }
     }
 }

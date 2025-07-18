@@ -2,7 +2,7 @@ package org.dmsextension.paperless.client.templates;
 
 public class TCustomFieldValue implements IDto{
     private String value;
-    private int field;
+    private Integer field;
 
     public TCustomFieldValue () { }
 
@@ -27,11 +27,11 @@ public class TCustomFieldValue implements IDto{
         this.value = value;
     }
 
-    public int getField() {
+    public Integer getField() {
         return field;
     }
 
-    public void setField(int field) {
+    public void setField(Integer field) {
         this.field = field;
     }
 }

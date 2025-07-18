@@ -108,3 +108,247 @@
 2025-07-17 20:30:29.874 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
 2025-07-17 20:30:29.875 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
 2025-07-17 20:30:29.927 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 20:51:11.980 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 20:51:11.989 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 20:51:12.759 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 20:51:12.834 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 20:51:12.948 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 20:51:12.973 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 20:51:13.012 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 20:51:14.125 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 20:51:14.309 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 20:51:14.309 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 20:51:14.316 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 20:51:14.378 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 20:51:14.402 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 20:51:14.402 [main] INFO  org.dmsextension.paperless.client.PaperlessClient$Builder - Missing values for building paperless client
+2025-07-17 20:51:14.404 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 20:51:14.404 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 20:51:14.408 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 20:51:14.408 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 20:51:14.411 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Uploading file C:\Users\gerri\Desktop\King of Ordners\2024_Ausbildungszeugnis.pdf to paperless
+2025-07-17 20:51:14.413 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built endpoint and template
+2025-07-17 20:51:14.418 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built request, executing
+2025-07-17 20:51:14.561 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, uploaded document, guid: "e1e1e564-cc9a-4b82-8109-2dc0c71af797"
+2025-07-17 20:51:14.567 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 20:51:14.567 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 20:51:14.572 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 20:51:14.573 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 20:51:14.575 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 20:51:14.576 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 20:51:14.778 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, parsing response
+2025-07-17 20:51:14.778 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 20:51:14.778 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 20:51:14.861 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:13:14.707 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:14.711 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:13:15.051 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:13:15.052 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:13:15.676 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:13:15.719 [main] INFO  org.dmsextension.paperless.client.PaperlessClient - API call not successful: Bad Request
+2025-07-17 21:13:15.746 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:15.746 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:13:15.750 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:13:15.802 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:13:15.863 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:13:15.874 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:13:15.893 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:13:16.031 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:13:16.031 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:13:16.037 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:13:16.091 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:13:16.098 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:16.098 [main] INFO  org.dmsextension.paperless.client.PaperlessClient$Builder - Missing values for building paperless client
+2025-07-17 21:13:16.098 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:16.099 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:13:16.103 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:16.103 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:13:16.104 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Uploading file C:\Users\gerri\Desktop\King of Ordners\2024_Ausbildungszeugnis.pdf to paperless
+2025-07-17 21:13:16.105 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built endpoint and template
+2025-07-17 21:13:16.108 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built request, executing
+2025-07-17 21:13:16.216 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, uploaded document, guid: "4f72eed6-64ea-47da-a72d-e63bf77dff0a"
+2025-07-17 21:13:16.220 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:16.221 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:13:16.223 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:13:16.223 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:13:16.224 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:13:16.225 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:13:16.378 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, parsing response
+2025-07-17 21:13:16.378 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:13:16.379 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:13:16.432 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:13:47.963 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:13:47.966 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:13:48.305 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:13:48.306 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:13:48.939 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:13:48.976 [main] INFO  org.dmsextension.paperless.client.PaperlessClient - API call not successful: Bad Request
+2025-07-17 21:14:02.500 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:14:02.500 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:14:02.504 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:14:04.853 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:14:04.857 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:14:14.868 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:14:18.901 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:14:28.566 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:16:07.233 [main] INFO  org.dmsextension.paperless.client.PaperlessClient - API call not successful: Bad Request
+2025-07-17 21:16:11.269 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:11.277 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:16:13.785 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:16:14.661 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:16:14.773 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:16:14.804 [main] INFO  org.dmsextension.paperless.client.PaperlessClient - Exception while querying api: com.squareup.moshi.JsonEncodingException: Use JsonReader.setLenient(true) to accept malformed JSON at path $
+2025-07-17 21:16:23.657 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:23.657 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:16:25.390 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:16:25.435 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:16:25.535 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:16:25.552 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:16:25.593 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:16:25.707 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:16:25.707 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:16:25.714 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:16:25.766 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:16:25.775 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:25.775 [main] INFO  org.dmsextension.paperless.client.PaperlessClient$Builder - Missing values for building paperless client
+2025-07-17 21:16:25.775 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:25.776 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:16:25.778 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:25.778 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:16:25.780 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Uploading file C:\Users\gerri\Desktop\King of Ordners\2024_Ausbildungszeugnis.pdf to paperless
+2025-07-17 21:16:25.781 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built endpoint and template
+2025-07-17 21:16:25.786 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built request, executing
+2025-07-17 21:16:25.886 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, uploaded document, guid: "27d1052f-30bd-44b4-85e1-c48bd306a819"
+2025-07-17 21:16:25.891 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:25.891 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:16:25.974 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:16:25.974 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:16:25.978 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:16:25.979 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:16:28.774 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:16:28.783 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:16:41.795 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:17:21.880 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:21.887 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:17:22.255 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:17:22.924 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:17:23.044 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:17:23.076 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:23.076 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:17:23.080 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:17:23.117 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:17:23.177 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:17:23.187 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:17:23.204 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:17:23.322 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:17:23.323 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:17:23.330 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:17:23.381 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:17:23.388 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:23.388 [main] INFO  org.dmsextension.paperless.client.PaperlessClient$Builder - Missing values for building paperless client
+2025-07-17 21:17:23.388 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:23.388 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:17:23.393 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:23.393 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:17:23.395 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Uploading file C:\Users\gerri\Desktop\King of Ordners\2024_Ausbildungszeugnis.pdf to paperless
+2025-07-17 21:17:23.396 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built endpoint and template
+2025-07-17 21:17:23.399 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built request, executing
+2025-07-17 21:17:23.516 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, uploaded document, guid: "7331b54e-72e8-4c7d-b6e3-860aa36557ca"
+2025-07-17 21:17:23.526 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:23.526 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:17:23.530 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:17:23.530 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:17:23.531 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:17:23.531 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:17:23.662 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, parsing response
+2025-07-17 21:17:23.663 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:17:23.663 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:17:23.727 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:17:45.650 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:17:45.654 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:17:47.585 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:17:48.438 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:17:48.568 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:18:02.293 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:02.297 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:18:08.377 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:18:10.648 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:18:45.436 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:18:51.372 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:51.374 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:18:51.710 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:18:52.383 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:18:52.590 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:18:52.625 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:52.625 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:18:52.628 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:18:52.667 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:18:52.725 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:18:52.735 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:18:52.753 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:18:52.864 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:18:52.864 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:18:52.871 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:18:52.919 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:18:52.925 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:52.925 [main] INFO  org.dmsextension.paperless.client.PaperlessClient$Builder - Missing values for building paperless client
+2025-07-17 21:18:52.925 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:52.925 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:18:52.928 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:52.930 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:18:52.931 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Uploading file C:\Users\gerri\Desktop\King of Ordners\2024_Ausbildungszeugnis.pdf to paperless
+2025-07-17 21:18:52.932 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built endpoint and template
+2025-07-17 21:18:52.936 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built request, executing
+2025-07-17 21:18:53.049 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, uploaded document, guid: "0391d186-2f0a-440c-98bd-b54e8cfb173f"
+2025-07-17 21:18:53.054 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:18:53.054 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:18:53.056 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:18:53.056 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:18:53.057 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:18:53.057 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:18:53.193 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, parsing response
+2025-07-17 21:18:53.193 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:18:53.193 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:18:53.249 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:19:24.773 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:19:24.777 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:19:27.849 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:21:01.022 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:21:01.269 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:21:09.226 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:21:09.233 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:21:10.828 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:21:11.954 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:21:12.313 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:22:37.002 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:22:37.002 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:22:37.005 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:22:37.070 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:22:37.157 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:22:37.174 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:22:37.203 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:22:37.339 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
+2025-07-17 21:22:37.339 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Parsing reponse
+2025-07-17 21:22:37.345 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - Extracting file from input stream
+2025-07-17 21:22:37.393 [main] DEBUG org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint - File extracted
+2025-07-17 21:22:37.401 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:22:37.401 [main] INFO  org.dmsextension.paperless.client.PaperlessClient$Builder - Missing values for building paperless client
+2025-07-17 21:22:37.402 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:22:37.402 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:22:37.405 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:22:37.405 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:22:37.406 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Uploading file C:\Users\gerri\Desktop\King of Ordners\2024_Ausbildungszeugnis.pdf to paperless
+2025-07-17 21:22:37.407 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built endpoint and template
+2025-07-17 21:22:37.414 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Built request, executing
+2025-07-17 21:22:37.524 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Request successful, uploaded document, guid: "2059b7a5-663f-4d47-afe3-c3617e80d89d"
+2025-07-17 21:22:37.528 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:22:37.528 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:22:39.322 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - About to parse: inline@26d838bc
+2025-07-17 21:22:39.323 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Building AST
+2025-07-17 21:22:39.324 [main] DEBUG com.github.jknack.handlebars.internal.HbsParserFactory - Creating templates
+2025-07-17 21:22:39.325 [main] INFO  org.dmsextension.paperless.client.endpoints.PaperlessEndpoint - No query given to this endpoint
+2025-07-17 21:22:41.662 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - No url set, trying to build url with protocol, host and port
+2025-07-17 21:22:41.667 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient$Builder - Built url: http://ilostthegame:8000/api/
+2025-07-17 21:22:47.242 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Calling api with given endpoint and body
+2025-07-17 21:22:58.464 [main] DEBUG org.dmsextension.paperless.client.PaperlessInterceptor - Request successful, getting token for user sysuser
+2025-07-17 21:23:03.156 [main] DEBUG org.dmsextension.paperless.client.PaperlessClient - Api call successful, parsing response
