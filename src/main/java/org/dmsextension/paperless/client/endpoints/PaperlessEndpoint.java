@@ -88,7 +88,7 @@ public abstract class PaperlessEndpoint implements IEndpoint {
      * Sets endpoint query params
      * @param query Query for the request
      */
-    public void query(Map<String, String> query) {
+    public void query(@NotNull Map<String, String> query) {
         this.query = query;
     }
 }

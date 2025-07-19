@@ -3,8 +3,10 @@ package org.dmsextension.paperless.client;
 import okhttp3.*;
 import org.dmsextension.paperless.client.endpoints.EndpointFactory;
 import org.dmsextension.paperless.client.endpoints.IEndpoint;
+import org.dmsextension.paperless.client.endpoints.SingleDocumentEndpoint;
 import org.dmsextension.paperless.client.http.MethodC;
 import org.dmsextension.paperless.client.templates.IDto;
+import org.dmsextension.paperless.client.templates.TDocument;
 import org.dmsextension.paperless.client.templates.TDocumentDownload;
 import org.dmsextension.paperless.client.templates.TDocumentUpload;
 import org.jetbrains.annotations.NotNull;
@@ -146,6 +148,20 @@ public class PaperlessClient {
         }
 
         return result != null ? result.getFile() : null;
+    }
+
+    /**
+     * Retrieves document with given id by using a {@link SingleDocumentEndpoint}
+     * @param id ID of document to retrieve
+     * @return TDocument instance for given id or null, if id does not exist in dms
+     * @throws Exception When shit went seriously wrong
+     */
+    public TDocument getDocument(String id) throws Exception {
+        SingleDocumentEndpoint ep = new SingleDocumentEndpoint(this.url);
+        ep.pathParams(Map.of("id", id));
+        ep.method(MethodC.GET);
+        IDto result = this.execute(ep, null);
+        return result == null ? null : (TDocument) result;
     }
 
     /**

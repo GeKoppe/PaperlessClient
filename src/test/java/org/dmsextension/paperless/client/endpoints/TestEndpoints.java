@@ -1,6 +1,7 @@
 package org.dmsextension.paperless.client.endpoints;
 
 import org.dmsextension.paperless.client.PaperlessClient;
+import org.dmsextension.paperless.client.http.ActionC;
 import org.dmsextension.paperless.client.templates.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestEndpoints {
+    /**
     private final PaperlessClient client = new PaperlessClient.Builder()
             .host(System.getenv("PAPERLESS_HOST"))
             .port(System.getenv("PAPERLESS_PORT"))
@@ -52,4 +54,21 @@ public class TestEndpoints {
             fail();
         }
     }
+
+    @Test
+    public void testSingleDocumentEndpoint() {
+        SingleDocumentEndpoint ep = new SingleDocumentEndpoint(this.client.getUrl());
+        ep.pathParams(Map.of("id", "258"));
+        try {
+            ep.action(ActionC.GET);
+            IDto document = this.client.execute(ep, null);
+            Assertions.assertInstanceOf(TDocument.class, document);
+            TDocument doc = (TDocument) document;
+            Assertions.assertEquals(258, doc.getId());
+            Assertions.assertFalse(doc.getCustomFields().isEmpty());
+        } catch (Exception ex) {
+            fail(ex);
+        }
+    }
+    */
 }

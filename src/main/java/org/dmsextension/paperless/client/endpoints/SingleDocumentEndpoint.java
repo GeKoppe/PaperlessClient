@@ -1,6 +1,9 @@
 package org.dmsextension.paperless.client.endpoints;
 
+import com.squareup.moshi.JsonAdapter;
+import okhttp3.MediaType;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.dmsextension.paperless.client.http.ActionC;
 import org.dmsextension.paperless.client.http.MethodC;
@@ -16,14 +19,86 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * j
+ * Endpoint for single documents.
+ * <b>Endpoint:</b> "/documents/{{id}}/
+ * <p>
+ * <table border="1">
+ *     <caption>Needed path parameters</caption>
+ *     <tr>
+ *         <th>Param</th>
+ *         <th>Description</th>
+ *     </tr>
+ *     <tr>
+ *         <td>id</td>
+ *         <td>ID of the document in paperless</td>
+ *     </tr>
+ * </table>
+ * <p>
+ * <table border="1">
+ *     <caption>Possible query elements</caption>
+ *     <tr>
+ *         <th>Element</th>
+ *         <th>Type</th>
+ *         <th>Description</th>
+ *         <th>Example</th>
+ *     </tr>
+ *     <tr>
+ *         <td>fields</td>
+ *         <td>array</td>
+ *         <td>Custom fields the endpoint should return</td>
+ *         <td>["Invoice Number","Date"]</td>
+ *     </tr>
+ * </table>
+ * <p>
+ * <table border="1">
+ *     <caption>Methods</caption>
+ *     <tr>
+ *         <th>Method</th>
+ *         <th>Used for</th>
+ *     </tr>
+ *     <tr>
+ *         <td>GET</td>
+ *         <td>Retrieving document with given id</td>
+ *     </tr>
+ *     <tr>
+ *         <td>DELETE</td>
+ *         <td>Delete the document with given id</td>
+ *     </tr>
+ *     <tr>
+ *         <td>PATCH</td>
+ *         <td>Update given document. Only updates given entries, everything else stays the same</td>
+ *     </tr>
+ *     <tr>
+ *         <td>PUT</td>
+ *         <td>Updates given document. Overwrites entire entry of document, earlier information is lost.</td>
+ *     </tr>
+ * </table>
  */
 public class SingleDocumentEndpoint extends ParameterEndpoint implements IParametrizedEndpoint {
+    /**
+     * Logger
+     */
     private final Logger logger = LoggerFactory.getLogger(SingleDocumentEndpoint.class);
+    /**
+     * Allowed methods on this endpoint
+     */
     private static final List<MethodC> methods = new ArrayList<>(Arrays.asList(MethodC.PUT, MethodC.GET, MethodC.PATCH, MethodC.DELETE));
+    /**
+     * Method to use on this endpoint. Should be set via {@link SingleDocumentEndpoint#method(MethodC)} before execution,
+     * otherwise an exception will occur
+     */
     private MethodC method;
+    /**
+     * Resource of this endpoint
+     */
     private static final String endpoint = "documents/{{id}}/";
-    public SingleDocumentEndpoint(String baseUrl) {
+    private static final List<String> neededParams = new ArrayList<>(List.of("id"));
+
+    /**
+     * Default constructor
+     * @param baseUrl Base url of paperless api
+     */
+    public SingleDocumentEndpoint(@NotNull String baseUrl) {
         super(baseUrl);
     }
 
@@ -44,6 +119,9 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
             case GET:
                 this.method = MethodC.GET;
                 break;
+            case CREATE_NEW:
+                this.method = MethodC.PUT;
+                break;
             default:
                 throw new IllegalArgumentException("Endpoint can only update, get or delete document");
         }
@@ -61,37 +139,59 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
 
     /**
      * {@inheritDoc}
-     * @return
-     * @throws Exception
+     * @return {@link TDocument} instance of affected document or null, if delete was called.
+     * @throws Exception If configured method needs a body, not all path params were given or valid method is configured.
      */
     @Override
     public Request buildRequest() throws Exception {
         if (this.method.equals(MethodC.PATCH) || this.method.equals(MethodC.PUT)) {
             throw new IllegalArgumentException("Calling buildRequest without body not allowed for patch or put operation");
         }
-        Request.Builder builder = new Request.Builder();
-
+        if (!IParametrizedEndpoint.allPathParamsGiven(this.getParams(), neededParams)) {
+            throw new IllegalStateException("Missing path params");
+        }
+        Request.Builder builder = new Request.Builder()
+                .url(this.parseEndpoint(endpoint) + this.parseQuery());
+        if (this.method.equals(MethodC.GET)) builder = builder.get();
+        else if (this.method.equals(MethodC.DELETE)) builder = builder.delete();
+        else {
+            this.logger.debug("No valid method given");
+            throw new IllegalStateException("Invalid method " + this.method);
+        }
         return builder.build();
     }
 
     /**
      * {@inheritDoc}
-     * @param body
-     * @return
-     * @throws Exception
+     * @param body TDocument instance
+     * @return {@link TDocument} instance for the affected document. Null in case of delete.
+     * @throws Exception When shit went wrong
      */
     @Override
     public Request buildRequest(@NotNull IDto body) throws Exception {
         switch (this.method) {
             case GET, DELETE:
                 return this.buildRequest();
-            case PUT:
+            case PUT, PATCH:
                 if (!(body instanceof TDocument)) {
                     throw new IllegalArgumentException("Endpoint can only execute put statement, if an entire TDocument is given");
                 }
-                return null;
-            case PATCH:
-
+                Request.Builder builder = new Request.Builder()
+                        .url(this.parseEndpoint(endpoint) + this.parseQuery());
+                JsonAdapter<TDocument> adapter = this.getMoshi().adapter(TDocument.class);
+                String json = adapter.toJson((TDocument) body);
+                return (this.method.equals(MethodC.PATCH) ? builder.patch(
+                            RequestBody.create(
+                                    json,
+                                    MediaType.get("application/json;charset=utf-8")
+                                )
+                            ).build() :
+                        builder.put(
+                                RequestBody.create(
+                                        json,
+                                        MediaType.get("application/json;charset=utf-8")
+                                )
+                        ).build());
             default:
                 throw new IllegalStateException("No method set for this endpoint");
         }
@@ -99,21 +199,34 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
 
     @Override
     public IDto parseResponse(@NotNull Response response) throws Exception {
-        return null;
+        if (this.method.equals(MethodC.DELETE)) {
+            this.logger.info("Delete method does not yield a body, returning null");
+            return null;
+        }
+
+        if (response.body() == null) {
+            this.logger.info("Request yielded no body");
+            throw new RuntimeException("No body yielded");
+        }
+        JsonAdapter<TDocument> adapter = this.getMoshi().adapter(TDocument.class);
+        return adapter.fromJson(response.body().string());
     }
 
+    /**
+     * {@inheritDoc}
+     * @return
+     */
     @Override
     public List<MethodC> getMethods() {
-        return null;
+        return methods;
     }
 
+    /**
+     * {@inheritDoc}
+     * @return
+     */
     @Override
     public List<String> getPathParams() {
-        return null;
-    }
-
-    @Override
-    public void pathParams(Map<String, String> params) {
-
+        return neededParams;
     }
 }

@@ -59,5 +59,9 @@ public interface IEndpoint {
     void method(@NotNull MethodC method);
     // IDto bodyFromParams(HashMap<String, Object> params);
 
+    /**
+     * Adds the url query to the endpoint
+     * @param query
+     */
     void query(@NotNull Map<String, String> query);
 }
