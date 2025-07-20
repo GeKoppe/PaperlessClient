@@ -22,9 +22,10 @@ public abstract class ParameterEndpoint extends PaperlessEndpoint implements IPa
      * Handlebars
      */
     private final CustomHandlebars handlebars = new CustomHandlebars();
+    /**
+     * Map with all url params
+     */
     private Map<String, String> params;
-    private String endpoint;
-
     /**
      * Default constructor
      * @param baseUrl Paperless api base url
@@ -48,19 +49,24 @@ public abstract class ParameterEndpoint extends PaperlessEndpoint implements IPa
         this.params = params;
     }
 
+    /**
+     * Uses {@link CustomHandlebars} to compile the base url, concatinated with parametrized endpoint url to an
+     * actual url, using {@link ParameterEndpoint#params}.
+     * @param endpoint Endpoint to compile
+     * @return Complete url of the endpoint
+     * @throws IOException If handlebars can't compile the string.
+     */
     protected String parseEndpoint(String endpoint) throws IOException {
         Template template = this.handlebars.compileInline(this.getBaseUrl() + endpoint);
         return template.apply(this.params);
     }
 
+    /**
+     * Returns all params already given to the class
+     * @return Params
+     */
     public Map<String, String> getParams() {
         return params;
-    }
-
-
-
-    public String getEndpoint() {
-        return endpoint;
     }
 
 }
