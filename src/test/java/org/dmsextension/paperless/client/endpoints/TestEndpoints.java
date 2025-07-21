@@ -12,7 +12,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class TestEndpoints {
-    /**
     private final PaperlessClient client = new PaperlessClient.Builder()
             .host(System.getenv("PAPERLESS_HOST"))
             .port(System.getenv("PAPERLESS_PORT"))
@@ -70,5 +69,4 @@ public class TestEndpoints {
             fail(ex);
         }
     }
-    */
 }

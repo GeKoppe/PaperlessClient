@@ -7,7 +7,7 @@ import java.io.File;
 
 public class TestClient {
 
-    /**
+
     @Test
     public void testBuilder() {
         try {
@@ -60,5 +60,5 @@ public class TestClient {
         Assertions.assertNotNull(file);
         Assertions.assertTrue(file.exists());
     }
-    */
+
 }
