@@ -74,6 +74,7 @@ public abstract class PaperlessEndpoint implements IEndpoint {
             return "";
         }
         boolean firstAdded = false;
+        query.append("?");
         for (var k : this.query.keySet()) {
             if (firstAdded) query.append("&");
             query.append(k)

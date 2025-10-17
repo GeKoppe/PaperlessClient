@@ -6,7 +6,7 @@
 
     <groupId>org.dmsextension.paperless.client</groupId>
     <artifactId>PaperlessClient</artifactId>
-    <version>0.1.4</version>
+    <version>0.1.9</version>
     <packaging>jar</packaging>
 
     <properties>

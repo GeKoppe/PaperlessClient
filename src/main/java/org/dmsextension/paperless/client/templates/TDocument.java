@@ -10,9 +10,9 @@ public class TDocument implements IDto {
     private Integer analyzeTries = 0;
     private Integer id;
     @Json(name="document_type")
-    private String documentType;
+    private Integer documentType;
     @Json(name="storage_path")
-    private String storagePath;
+    private Integer storagePath;
     private String title;
     private String content;
     private List<Integer> tags;
@@ -25,6 +25,19 @@ public class TDocument implements IDto {
     private String mimeType;
     @Json(name="custom_fields")
     private List<TCustomFieldValue> customFields;
+    private Integer owner;
+    @Json(name="user_can_change")
+    private Boolean userCanChange;
+    @Json(name="archive_serial_number")
+    private Integer archiveSerialNumber;
+    @Json(name="created_date")
+    private String createdDate;
+    @Json(name="original_file_name")
+    private String originalFileName;
+    @Json(name="archived_file_name")
+    private String archivedFileName;
+    @Json(name="is_shared_by_requester")
+    private Boolean isSharedByRequester;
 
     public TDocument() { }
 
@@ -45,14 +58,14 @@ public class TDocument implements IDto {
                 this.customFields
         );
     }
+
     @Override
     public String toString() {
         return "TDocument{" +
                 "id=" + id +
-                ", documentType='" + documentType + '\'' +
-                ", storagePath='" + storagePath + '\'' +
+                ", documentType=" + documentType +
+                ", storagePath=" + storagePath +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
                 ", tags=" + tags +
                 ", created='" + created + '\'' +
                 ", modified='" + modified + '\'' +
@@ -60,6 +73,13 @@ public class TDocument implements IDto {
                 ", deletedAt='" + deletedAt + '\'' +
                 ", mimeType='" + mimeType + '\'' +
                 ", customFields=" + customFields +
+                ", owner=" + owner +
+                ", userCanChange=" + userCanChange +
+                ", archiveSerialNumber=" + archiveSerialNumber +
+                ", createdDate='" + createdDate + '\'' +
+                ", originalFileName='" + originalFileName + '\'' +
+                ", archivedFileName='" + archivedFileName + '\'' +
+                ", isSharedByRequester=" + isSharedByRequester +
                 '}';
     }
 
@@ -75,6 +95,15 @@ public class TDocument implements IDto {
         return Objects.hash(getId());
     }
 
+
+    public Integer getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Integer owner) {
+        this.owner = owner;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -83,19 +112,19 @@ public class TDocument implements IDto {
         this.id = id;
     }
 
-    public String getDocumentType() {
+    public Integer getDocumentType() {
         return documentType;
     }
 
-    public void setDocumentType(String documentType) {
+    public void setDocumentType(Integer documentType) {
         this.documentType = documentType;
     }
 
-    public String getStoragePath() {
+    public Integer getStoragePath() {
         return storagePath;
     }
 
-    public void setStoragePath(String storagePath) {
+    public void setStoragePath(Integer storagePath) {
         this.storagePath = storagePath;
     }
 
@@ -181,5 +210,53 @@ public class TDocument implements IDto {
 
     public void addAnalyzeTry() {
         this.analyzeTries++;
+    }
+
+    public Boolean getUserCanChange() {
+        return userCanChange;
+    }
+
+    public void setUserCanChange(Boolean userCanChange) {
+        this.userCanChange = userCanChange;
+    }
+
+    public Integer getArchiveSerialNumber() {
+        return archiveSerialNumber;
+    }
+
+    public void setArchiveSerialNumber(Integer archiveSerialNumber) {
+        this.archiveSerialNumber = archiveSerialNumber;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getOriginalFileName() {
+        return originalFileName;
+    }
+
+    public void setOriginalFileName(String originalFileName) {
+        this.originalFileName = originalFileName;
+    }
+
+    public String getArchivedFileName() {
+        return archivedFileName;
+    }
+
+    public void setArchivedFileName(String archivedFileName) {
+        this.archivedFileName = archivedFileName;
+    }
+
+    public Boolean getSharedByRequester() {
+        return isSharedByRequester;
+    }
+
+    public void setSharedByRequester(Boolean sharedByRequester) {
+        isSharedByRequester = sharedByRequester;
     }
 }

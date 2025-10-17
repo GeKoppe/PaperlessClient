@@ -1,14 +1,9 @@
 package org.dmsextension.paperless.client;
 
 import okhttp3.*;
-import org.dmsextension.paperless.client.endpoints.EndpointFactory;
-import org.dmsextension.paperless.client.endpoints.IEndpoint;
-import org.dmsextension.paperless.client.endpoints.SingleDocumentEndpoint;
+import org.dmsextension.paperless.client.endpoints.*;
 import org.dmsextension.paperless.client.http.MethodC;
-import org.dmsextension.paperless.client.templates.IDto;
-import org.dmsextension.paperless.client.templates.TDocument;
-import org.dmsextension.paperless.client.templates.TDocumentDownload;
-import org.dmsextension.paperless.client.templates.TDocumentUpload;
+import org.dmsextension.paperless.client.templates.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -23,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Instances of this class are capable of communicating with Paperless-ngx.
  * Certain convenience methods like {@link PaperlessClient#uploadDocument(File)} are already
- * implemented, you can also instantiate your own {@link org.dmsextension.paperless.client.endpoints.IEndpoint}
+ * implemented, you can also instantiate your own {@link IEndpoint}
  * class and call {@link PaperlessClient#execute(IEndpoint, IDto)} and configure the call yourself.
  */
 public class PaperlessClient {
@@ -79,6 +74,53 @@ public class PaperlessClient {
         return response;
     }
 
+    public TSpecifiedSearchResult<TDocument> executeDocumentPaginated(Map<String, String> query) throws Exception {
+        TSpecifiedSearchResult<TDocument> fullResponse = null;
+        this.logger.debug("Calling api with given endpoint and body");
+        DocumentEndpoint endpoint = EndpointFactory.documentEndpoint(this.getUrl());
+        if (query == null) {
+            query = new HashMap<>();
+
+        }
+        query.put("page", "1");
+        endpoint.query(query);
+
+        Request request = endpoint.buildRequest();
+        try (Response r = this.httpClient.newCall(request).execute()) {
+            if (r.isSuccessful()) {
+                this.logger.debug("Api call successful, parsing response");
+                fullResponse = endpoint.parseResponse(r);
+            } else {
+                this.logger.info("API call not successful: " + r.message());
+                return null;
+            }
+        } catch (Exception ex) {
+            this.logger.info("Exception while querying api: " + ex);
+            throw ex;
+        }
+        int page = 2;
+        while (fullResponse.getNext() != null) {
+            query.put("page", "" + page);
+            endpoint.query(query);
+            Request req = endpoint.buildRequest();
+            try (Response r = this.httpClient.newCall(req).execute()) {
+                if (r.isSuccessful()) {
+                    this.logger.debug("Api call successful, parsing response");
+                    TSpecifiedSearchResult<TDocument> response = endpoint.parseResponse(r);
+                    fullResponse.getResults().addAll(response.getResults());
+                    fullResponse.setNext(response.getNext());
+                } else {
+                    this.logger.info("API call not successful: " + r.message());
+                }
+            } catch (Exception ex) {
+                this.logger.info("Exception while querying api: " + ex);
+                throw ex;
+            }
+            page++;
+        }
+        return fullResponse;
+    }
+
     /**
      * Uploads a file to paperless. Calls {@link PaperlessClient#uploadDocument(File, HashMap)} with an empty hashmap,
      * therefore the file will be uploaded without a metadataset, just the file with the filename as title.
@@ -123,7 +165,7 @@ public class PaperlessClient {
 
     /**
      * Downloads document with given documentId from paperless-ngx by utilizing
-     * {@link org.dmsextension.paperless.client.endpoints.DocumentDownloadEndpoint}.
+     * {@link DocumentDownloadEndpoint}.
      * @param documentId ID of the document
      * @return Downloaded file
      * @throws Exception When shit goes down.

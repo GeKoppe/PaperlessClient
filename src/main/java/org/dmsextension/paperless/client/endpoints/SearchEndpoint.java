@@ -68,7 +68,7 @@ public class SearchEndpoint extends PaperlessEndpoint {
         String completedUlr = this.getBaseUrl() + endpoint;
 
         return new Request.Builder()
-                .url(completedUlr +"?" +  this.parseQuery())
+                .url(completedUlr + this.parseQuery())
                 .header("Content-Type", "application/json")
                 .get()
                 .build();

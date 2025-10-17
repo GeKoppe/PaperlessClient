@@ -2,6 +2,7 @@ package org.dmsextension.paperless.client.endpoints;
 
 import org.dmsextension.paperless.client.PaperlessClient;
 import org.dmsextension.paperless.client.http.ActionC;
+import org.dmsextension.paperless.client.http.MethodC;
 import org.dmsextension.paperless.client.templates.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -65,6 +66,49 @@ public class TestEndpoints {
             TDocument doc = (TDocument) document;
             Assertions.assertEquals(258, doc.getId());
             Assertions.assertFalse(doc.getCustomFields().isEmpty());
+        } catch (Exception ex) {
+            fail(ex);
+        }
+    }
+    @Test
+    public void testEndpointWithQuery() {
+        DocumentEndpoint ep = EndpointFactory.documentEndpoint(client.getUrl());
+
+        Map<String, String> query = new HashMap<>();
+        query.put("ordering", "id");
+        ep.query(query);
+
+        TSpecifiedSearchResult<TDocument> docs = null;
+        try {
+            IDto result = client.execute(ep, null);
+            if (!(result instanceof TSpecifiedSearchResult<?>)) {
+                fail();
+                return;
+            }
+            docs = (TSpecifiedSearchResult<TDocument>) result;
+        } catch (Exception ex) {
+            fail(ex);
+        }
+        Assertions.assertTrue(docs.getCount() > 0);
+    }
+
+    @Test
+    public void testCustomfieldEndpoint() {
+        CustomFieldEndpoint ep = new CustomFieldEndpoint(client.getUrl());
+        Map<String, String> query = new HashMap<>();
+        query.put("name__istartswith", "Rechnungs");
+        ep.query(query);
+        ep.method(MethodC.GET);
+        IDto res = null;
+        try {
+            res = client.execute(ep, null);
+            if (!(res instanceof TSpecifiedSearchResult<?>)) {
+                fail();
+                return;
+            }
+            @SuppressWarnings("unchecked")
+            TSpecifiedSearchResult<TCustomFieldTemplate> cft = (TSpecifiedSearchResult<TCustomFieldTemplate>) res;
+            Assertions.assertTrue(cft.getResults().size() > 0);
         } catch (Exception ex) {
             fail(ex);
         }

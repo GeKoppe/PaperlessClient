@@ -137,7 +137,7 @@ public class SingleCustomFieldEndpoint extends ParameterEndpoint {
         RequestBody rBody = RequestBody.create(json, MediaType.get("application/json; charset=utf-8"));
         this.logger.debug(String.format("Built request body %s", rBody));
 
-        String url = this.parseEndpoint(endpoint);
+        String url = this.parseEndpoint(endpoint) + this.parseQuery();
         Request.Builder builder = new Request.Builder()
                 .url(url);
         if (this.method.equals(MethodC.PATCH)) builder = builder.patch(rBody);

@@ -1,9 +1,13 @@
 package org.dmsextension.paperless.client;
 
+import org.dmsextension.paperless.client.templates.TDocument;
+import org.dmsextension.paperless.client.templates.TSpecifiedSearchResult;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestClient {
 
@@ -61,4 +65,18 @@ public class TestClient {
         Assertions.assertTrue(file.exists());
     }
 
+    @Test
+    public void testPaginated() throws Exception {
+        var client = new PaperlessClient.Builder()
+                .host(System.getenv("PAPERLESS_HOST"))
+                .port(System.getenv("PAPERLESS_PORT"))
+                .user(System.getenv("PAPERLESS_USER"))
+                .password(System.getenv("PAPERLESS_PW"))
+                .protocol(System.getenv("PAPERLESS_PROTOCOL"))
+                .build();
+        Map<String, String> query = new HashMap<>();
+        query.put("ordering", "id");
+        TSpecifiedSearchResult<TDocument> res = client.executeDocumentPaginated(query);
+        Assertions.assertTrue(res.getResults().size() > 100);
+    }
 }

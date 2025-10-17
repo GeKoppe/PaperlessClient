@@ -104,7 +104,7 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
         }
 
         return new Request.Builder()
-                .url(this.getBaseUrl() + "documents/post_document/")
+                .url(this.getBaseUrl() + "documents/post_document/" + this.parseQuery())
                 .post(((TDocumentUpload) body).getRequestBody())
                 .build();
     }
