@@ -1,16 +1,13 @@
 package org.dmsextension.paperless.client.endpoints;
 
 import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Types;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
-import org.dmsextension.paperless.client.templates.TDocument;
 import org.dmsextension.paperless.client.templates.TSearchResult;
-import org.dmsextension.paperless.client.templates.TSpecifiedSearchResult;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +45,7 @@ public class SearchEndpoint extends PaperlessEndpoint {
     /**
      * Methods this endpoint supports
      */
-    private static final List<MethodC> methods = new ArrayList<>(List.of(MethodC.GET));
+    private static final List<HttpMethodC> methods = new ArrayList<>(List.of(HttpMethodC.GET));
     private static final String endpoint = "search/";
     /**
      * Default constructor
@@ -110,7 +107,7 @@ public class SearchEndpoint extends PaperlessEndpoint {
      * @return
      */
     @Override
-    public List<MethodC> getMethods() {
+    public List<HttpMethodC> getMethods() {
         return methods;
     }
 
@@ -120,7 +117,7 @@ public class SearchEndpoint extends PaperlessEndpoint {
      * @param action Action the endpoint should execute
      */
     @Override
-    public void action(@NotNull ActionC action) {
+    public void action(@NotNull PaperlessActionC action) {
     }
 
     /**
@@ -129,6 +126,6 @@ public class SearchEndpoint extends PaperlessEndpoint {
      * @param method HTTP Method
      */
     @Override
-    public void method(@NotNull MethodC method) {
+    public void method(@NotNull HttpMethodC method) {
     }
 }

@@ -1,8 +1,8 @@
 package org.dmsextension.paperless.client.endpoints;
 
 import org.dmsextension.paperless.client.PaperlessClient;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -60,7 +60,7 @@ public class TestEndpoints {
         SingleDocumentEndpoint ep = new SingleDocumentEndpoint(this.client.getUrl());
         ep.pathParams(Map.of("id", "258"));
         try {
-            ep.action(ActionC.GET);
+            ep.action(PaperlessActionC.GET);
             IDto document = this.client.execute(ep, null);
             Assertions.assertInstanceOf(TDocument.class, document);
             TDocument doc = (TDocument) document;
@@ -98,7 +98,7 @@ public class TestEndpoints {
         Map<String, String> query = new HashMap<>();
         query.put("name__istartswith", "Rechnungs");
         ep.query(query);
-        ep.method(MethodC.GET);
+        ep.method(HttpMethodC.GET);
         IDto res = null;
         try {
             res = client.execute(ep, null);

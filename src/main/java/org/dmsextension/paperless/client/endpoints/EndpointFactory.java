@@ -1,6 +1,6 @@
 package org.dmsextension.paperless.client.endpoints;
 
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -52,74 +52,74 @@ public class EndpointFactory {
     }
 
     /**
-     * Returns a {@link SingleCustomFieldEndpoint} with {@link MethodC#GET} already set.
+     * Returns a {@link SingleCustomFieldEndpoint} with {@link HttpMethodC#GET} already set.
      * @param baseUrl Base url of paperless ngx api
-     * @return {@link SingleCustomFieldEndpoint} with {@link MethodC#GET} already set.
+     * @return {@link SingleCustomFieldEndpoint} with {@link HttpMethodC#GET} already set.
      */
     @NotNull
     public static SingleCustomFieldEndpoint getCustomField(@NotNull String baseUrl) {
         var ep = new SingleCustomFieldEndpoint(baseUrl);
-        ep.method(MethodC.GET);
+        ep.method(HttpMethodC.GET);
         return ep;
     }
 
     /**
-     * Returns a {@link SingleCustomFieldEndpoint} with {@link MethodC#PATCH} already set.
+     * Returns a {@link SingleCustomFieldEndpoint} with {@link HttpMethodC#PATCH} already set.
      * @param baseUrl Base url of paperless ngx api
-     * @return {@link SingleCustomFieldEndpoint} with {@link MethodC#PATCH} already set.
+     * @return {@link SingleCustomFieldEndpoint} with {@link HttpMethodC#PATCH} already set.
      */
     @NotNull
     public static SingleCustomFieldEndpoint updateCustomField(@NotNull String baseUrl) {
         var ep = new SingleCustomFieldEndpoint(baseUrl);
-        ep.method(MethodC.PATCH);
+        ep.method(HttpMethodC.PATCH);
         return ep;
     }
 
     /**
-     * Returns a {@link SingleCustomFieldEndpoint} with {@link MethodC#DELETE} already set.
+     * Returns a {@link SingleCustomFieldEndpoint} with {@link HttpMethodC#DELETE} already set.
      * @param baseUrl Base url of paperless ngx api
-     * @return {@link SingleCustomFieldEndpoint} with {@link MethodC#DELETE} already set.
+     * @return {@link SingleCustomFieldEndpoint} with {@link HttpMethodC#DELETE} already set.
      */
     @NotNull
     public static SingleCustomFieldEndpoint deleteCustomField(@NotNull String baseUrl) {
         var ep = new SingleCustomFieldEndpoint(baseUrl);
-        ep.method(MethodC.DELETE);
+        ep.method(HttpMethodC.DELETE);
         return ep;
     }
 
     /**
-     * Returns a {@link SingleStoragepathEndpoint} with {@link MethodC#GET} already set.
+     * Returns a {@link SingleStoragepathEndpoint} with {@link HttpMethodC#GET} already set.
      * @param baseUrl Base url of paperless ngx api
-     * @return {@link SingleStoragepathEndpoint} with {@link MethodC#GET} already set.
+     * @return {@link SingleStoragepathEndpoint} with {@link HttpMethodC#GET} already set.
      */
     @NotNull
     public static SingleStoragepathEndpoint getStoragepath(@NotNull String baseUrl) {
         var ep = new SingleStoragepathEndpoint(baseUrl);
-        ep.method(MethodC.GET);
+        ep.method(HttpMethodC.GET);
         return ep;
     }
 
     /**
-     * Returns a {@link SingleStoragepathEndpoint} with {@link MethodC#PATCH} already set.
+     * Returns a {@link SingleStoragepathEndpoint} with {@link HttpMethodC#PATCH} already set.
      * @param baseUrl Base url of paperless ngx api
-     * @return {@link SingleStoragepathEndpoint} with {@link MethodC#PATCH} already set.
+     * @return {@link SingleStoragepathEndpoint} with {@link HttpMethodC#PATCH} already set.
      */
     @NotNull
     public static SingleStoragepathEndpoint updateStoragepath(@NotNull String baseUrl) {
         var ep = new SingleStoragepathEndpoint(baseUrl);
-        ep.method(MethodC.PATCH);
+        ep.method(HttpMethodC.PATCH);
         return ep;
     }
 
     /**
-     * Returns a {@link SingleStoragepathEndpoint} with {@link MethodC#DELETE} already set.
+     * Returns a {@link SingleStoragepathEndpoint} with {@link HttpMethodC#DELETE} already set.
      * @param baseUrl Base url of paperless ngx api
-     * @return {@link SingleStoragepathEndpoint} with {@link MethodC#DELETE} already set.
+     * @return {@link SingleStoragepathEndpoint} with {@link HttpMethodC#DELETE} already set.
      */
     @NotNull
     public static SingleStoragepathEndpoint deleteStoragepath(@NotNull String baseUrl) {
         var ep = new SingleStoragepathEndpoint(baseUrl);
-        ep.method(MethodC.DELETE);
+        ep.method(HttpMethodC.DELETE);
         return ep;
     }
 

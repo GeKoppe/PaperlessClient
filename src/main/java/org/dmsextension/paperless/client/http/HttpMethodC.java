@@ -1,6 +1,6 @@
 package org.dmsextension.paperless.client.http;
 
-public enum MethodC {
+public enum HttpMethodC {
     GET,
     POST,
     PUT,

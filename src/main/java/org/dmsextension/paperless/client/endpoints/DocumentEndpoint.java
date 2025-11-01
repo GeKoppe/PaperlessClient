@@ -4,8 +4,8 @@ import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Types;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
 import org.dmsextension.paperless.client.templates.TDocument;
 import org.dmsextension.paperless.client.templates.TSpecifiedSearchResult;
@@ -32,11 +32,11 @@ public class DocumentEndpoint extends PaperlessEndpoint {
     /**
      * Allowed methods on this endpoint
      */
-    private static final List<MethodC> methods = new ArrayList<>(List.of(MethodC.GET));
+    private static final List<HttpMethodC> methods = new ArrayList<>(List.of(HttpMethodC.GET));
     /**
      * Method to execute
      */
-    private MethodC method;
+    private HttpMethodC method;
     /**
      * Default constructor
      *
@@ -89,7 +89,7 @@ public class DocumentEndpoint extends PaperlessEndpoint {
      * @return Possible methods for this endpoint
      */
     @Override
-    public List<MethodC> getMethods() {
+    public List<HttpMethodC> getMethods() {
         return methods;
     }
 
@@ -98,7 +98,7 @@ public class DocumentEndpoint extends PaperlessEndpoint {
      * @param action Action the endpoint should execute
      */
     @Override
-    public void action(@NotNull ActionC action) {
+    public void action(@NotNull PaperlessActionC action) {
         this.logger.info("Endpoint" + this + " only supports GET, method is irrelevant");
     }
 
@@ -107,7 +107,7 @@ public class DocumentEndpoint extends PaperlessEndpoint {
      * @param method HTTP Method
      */
     @Override
-    public void method(@NotNull MethodC method) {
+    public void method(@NotNull HttpMethodC method) {
         this.logger.info("Endpoint" + this + " only supports GET, method is irrelevant");
     }
 }

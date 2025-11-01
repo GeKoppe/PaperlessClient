@@ -2,8 +2,8 @@ package org.dmsextension.paperless.client.endpoints;
 
 import okhttp3.Request;
 import okhttp3.Response;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
 import org.dmsextension.paperless.client.templates.TDocumentUpload;
 import org.dmsextension.paperless.client.templates.TDocumentUploadResponse;
@@ -27,11 +27,11 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
     /**
      * List of all methods
      */
-    private static final List<MethodC> methods = new ArrayList<>(Arrays.asList(MethodC.POST));
+    private static final List<HttpMethodC> methods = new ArrayList<>(Arrays.asList(HttpMethodC.POST));
     /**
-     * Method to execute. Set to {@link MethodC#POST} by default, because endpoint only allows post
+     * Method to execute. Set to {@link HttpMethodC#POST} by default, because endpoint only allows post
      */
-    private MethodC method = MethodC.POST;
+    private HttpMethodC method = HttpMethodC.POST;
     /**
      * Endpoint resource
      */
@@ -50,7 +50,7 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
      * @param action Action the endpoint should execute
      */
     @Override
-    public void action(@NotNull ActionC action) {
+    public void action(@NotNull PaperlessActionC action) {
 
     }
 
@@ -59,7 +59,7 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
      * @param method HTTP Method
      */
     @Override
-    public void method(@NotNull MethodC method) {
+    public void method(@NotNull HttpMethodC method) {
         this.method = method;
     }
 
@@ -68,7 +68,7 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
      * @return Methods for this endpoint
      */
     @Override
-    public List<MethodC> getMethods() {
+    public List<HttpMethodC> getMethods() {
         return methods;
     }
 
@@ -128,7 +128,7 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
      * Get configured method.
      * @return Configured method for endpoint
      */
-    public MethodC getMethod() {
+    public HttpMethodC getMethod() {
         return method;
     }
 }

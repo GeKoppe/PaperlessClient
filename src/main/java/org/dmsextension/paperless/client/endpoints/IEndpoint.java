@@ -2,8 +2,8 @@ package org.dmsextension.paperless.client.endpoints;
 
 import okhttp3.Request;
 import okhttp3.Response;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
 import org.jetbrains.annotations.NotNull;
 
@@ -44,19 +44,19 @@ public interface IEndpoint {
      * Get a list of all possible methods for endpoint instance
      * @return List of all methods
      */
-    List<MethodC> getMethods();
+    List<HttpMethodC> getMethods();
 
     /**
      * Convenience method for deciding on a http method for the endpoint.
      * @param action Action the endpoint should execute
      */
-    void action(@NotNull ActionC action);
+    void action(@NotNull PaperlessActionC action);
 
     /**
      * Explicitly set the http method the endpoint should execute
      * @param method HTTP Method
      */
-    void method(@NotNull MethodC method);
+    void method(@NotNull HttpMethodC method);
     // IDto bodyFromParams(HashMap<String, Object> params);
 
     /**

@@ -5,8 +5,8 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
 import org.dmsextension.paperless.client.templates.TDocument;
 import org.jetbrains.annotations.NotNull;
@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Endpoint for single documents.
@@ -82,12 +81,12 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
     /**
      * Allowed methods on this endpoint
      */
-    private static final List<MethodC> methods = new ArrayList<>(Arrays.asList(MethodC.PUT, MethodC.GET, MethodC.PATCH, MethodC.DELETE));
+    private static final List<HttpMethodC> methods = new ArrayList<>(Arrays.asList(HttpMethodC.PUT, HttpMethodC.GET, HttpMethodC.PATCH, HttpMethodC.DELETE));
     /**
-     * Method to use on this endpoint. Should be set via {@link SingleDocumentEndpoint#method(MethodC)} before execution,
+     * Method to use on this endpoint. Should be set via {@link SingleDocumentEndpoint#method(HttpMethodC)} before execution,
      * otherwise an exception will occur
      */
-    private MethodC method;
+    private HttpMethodC method;
     /**
      * Resource of this endpoint
      */
@@ -108,19 +107,19 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
      * @param action
      */
     @Override
-    public void action(@NotNull ActionC action) {
+    public void action(@NotNull PaperlessActionC action) {
         switch (action) {
             case UPDATE:
-                this.method = MethodC.PATCH;
+                this.method = HttpMethodC.PATCH;
                 break;
             case DELETE:
-                this.method = MethodC.DELETE;
+                this.method = HttpMethodC.DELETE;
                 break;
             case GET:
-                this.method = MethodC.GET;
+                this.method = HttpMethodC.GET;
                 break;
             case CREATE_NEW:
-                this.method = MethodC.PUT;
+                this.method = HttpMethodC.PUT;
                 break;
             default:
                 throw new IllegalArgumentException("Endpoint can only update, get or delete document");
@@ -132,7 +131,7 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
      * @param method
      */
     @Override
-    public void method(@NotNull MethodC method) {
+    public void method(@NotNull HttpMethodC method) {
         if (!methods.contains(method)) throw new IllegalArgumentException("Endpoint does not have given method");
         this.method = method;
     }
@@ -144,7 +143,7 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
      */
     @Override
     public Request buildRequest() throws Exception {
-        if (this.method.equals(MethodC.PATCH) || this.method.equals(MethodC.PUT)) {
+        if (this.method.equals(HttpMethodC.PATCH) || this.method.equals(HttpMethodC.PUT)) {
             throw new IllegalArgumentException("Calling buildRequest without body not allowed for patch or put operation");
         }
         if (!IParametrizedEndpoint.allPathParamsGiven(this.getParams(), neededParams)) {
@@ -152,8 +151,8 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
         }
         Request.Builder builder = new Request.Builder()
                 .url(this.parseEndpoint(endpoint) + this.parseQuery());
-        if (this.method.equals(MethodC.GET)) builder = builder.get();
-        else if (this.method.equals(MethodC.DELETE)) builder = builder.delete();
+        if (this.method.equals(HttpMethodC.GET)) builder = builder.get();
+        else if (this.method.equals(HttpMethodC.DELETE)) builder = builder.delete();
         else {
             this.logger.debug("No valid method given");
             throw new IllegalStateException("Invalid method " + this.method);
@@ -180,7 +179,7 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
                         .url(this.parseEndpoint(endpoint) + this.parseQuery());
                 JsonAdapter<TDocument> adapter = this.getMoshi().adapter(TDocument.class);
                 String json = adapter.toJson((TDocument) body);
-                return (this.method.equals(MethodC.PATCH) ? builder.patch(
+                return (this.method.equals(HttpMethodC.PATCH) ? builder.patch(
                             RequestBody.create(
                                     json,
                                     MediaType.get("application/json;charset=utf-8")
@@ -199,7 +198,7 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
 
     @Override
     public IDto parseResponse(@NotNull Response response) throws Exception {
-        if (this.method.equals(MethodC.DELETE)) {
+        if (this.method.equals(HttpMethodC.DELETE)) {
             this.logger.info("Delete method does not yield a body, returning null");
             return null;
         }
@@ -217,7 +216,7 @@ public class SingleDocumentEndpoint extends ParameterEndpoint implements IParame
      * @return
      */
     @Override
-    public List<MethodC> getMethods() {
+    public List<HttpMethodC> getMethods() {
         return methods;
     }
 

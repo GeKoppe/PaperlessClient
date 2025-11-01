@@ -4,7 +4,7 @@ import com.github.jknack.handlebars.Template;
 import org.dmsextension.paperless.client.PaperlessClient;
 import org.dmsextension.paperless.client.endpoints.EndpointFactory;
 import org.dmsextension.paperless.client.endpoints.SingleDocumentEndpoint;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.TCustomFieldTemplate;
 import org.dmsextension.paperless.client.templates.TCustomFieldValue;
 import org.dmsextension.paperless.client.templates.TDocument;
@@ -60,7 +60,7 @@ public class TestCustomHandlebars {
 
             SingleDocumentEndpoint ep = new SingleDocumentEndpoint(client.getUrl());
             ep.pathParams(Map.of("id", "250"));
-            ep.method(MethodC.GET);
+            ep.method(HttpMethodC.GET);
             TDocument doc = (TDocument) client.execute(ep, null);
 
             Map<String, Object> map = CustomHandlebars.convertToMap(doc, TDocument.class);
@@ -81,7 +81,7 @@ public class TestCustomHandlebars {
                 .build();
         SingleDocumentEndpoint ep = new SingleDocumentEndpoint(client.getUrl());
         ep.pathParams(Map.of("id", "250"));
-        ep.method(MethodC.GET);
+        ep.method(HttpMethodC.GET);
         TDocument doc;
         try {
             doc = (TDocument) client.execute(ep, null);
@@ -106,7 +106,7 @@ public class TestCustomHandlebars {
                 .build();
         SingleDocumentEndpoint ep = new SingleDocumentEndpoint(client.getUrl());
         ep.pathParams(Map.of("id", "250"));
-        ep.method(MethodC.GET);
+        ep.method(HttpMethodC.GET);
         TDocument doc;
         try {
             doc = (TDocument) client.execute(ep, null);

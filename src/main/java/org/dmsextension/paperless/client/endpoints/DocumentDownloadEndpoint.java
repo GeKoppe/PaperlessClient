@@ -3,8 +3,8 @@ package org.dmsextension.paperless.client.endpoints;
 import com.github.jknack.handlebars.Template;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
 import org.dmsextension.paperless.client.templates.TDocumentDownload;
 import org.dmsextension.paperless.client.utils.CustomHandlebars;
@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * Endpoint for downloading files from paperless
  */
-public class DocumentDownloadEndpoint extends ParameterEndpoint implements IParametrizedEndpoint {
+public class DocumentDownloadEndpoint extends ParameterEndpoint {
     /**
      * Logger
      */
@@ -30,7 +30,7 @@ public class DocumentDownloadEndpoint extends ParameterEndpoint implements IPara
     /**
      * Methods
      */
-    private static final List<MethodC> methods = new ArrayList<>(List.of(MethodC.GET));
+    private static final List<HttpMethodC> methods = new ArrayList<>(List.of(HttpMethodC.GET));
     /**
      * List of all url params
      */
@@ -129,27 +129,27 @@ public class DocumentDownloadEndpoint extends ParameterEndpoint implements IPara
      * @return
      */
     @Override
-    public List<MethodC> getMethods() {
+    public List<HttpMethodC> getMethods() {
         return methods;
     }
 
     /**
      * {@inheritDoc}
-     * This particular endpoint only supports {@link ActionC#DOWNLOAD}, therefore this method is not usable.
+     * This particular endpoint only supports {@link PaperlessActionC#DOWNLOAD}, therefore this method is not usable.
      * @param action Action the endpoint should execute
      */
     @Override
-    public void action(@NotNull ActionC action) {
+    public void action(@NotNull PaperlessActionC action) {
         this.logger.debug("Endpoint " + this + " only supports DOWNLOAD, not setting");
     }
 
     /**
      * {@inheritDoc}
-     * This particular endpoint only supports {@link MethodC#GET}, therefore this method is not usable.
+     * This particular endpoint only supports {@link HttpMethodC#GET}, therefore this method is not usable.
      * @param method HTTP Method
      */
     @Override
-    public void method(@NotNull MethodC method) {
+    public void method(@NotNull HttpMethodC method) {
         this.logger.debug("Endpoint " + this + " only supports DOWNLOAD, not setting");
     }
 

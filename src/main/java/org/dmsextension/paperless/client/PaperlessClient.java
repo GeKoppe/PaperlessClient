@@ -2,7 +2,7 @@ package org.dmsextension.paperless.client;
 
 import okhttp3.*;
 import org.dmsextension.paperless.client.endpoints.*;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -142,7 +142,7 @@ public class PaperlessClient {
         this.logger.debug(String.format("Uploading file %s to paperless", file));
 
         var endpoint = EndpointFactory.documentUploadEndpoint(this.url);
-        endpoint.method(MethodC.POST);
+        endpoint.method(HttpMethodC.POST);
         var docUp = new TDocumentUpload();
         docUp.setDocument(file);
         this.logger.debug("Built endpoint and template");
@@ -201,7 +201,7 @@ public class PaperlessClient {
     public TDocument getDocument(String id) throws Exception {
         SingleDocumentEndpoint ep = new SingleDocumentEndpoint(this.url);
         ep.pathParams(Map.of("id", id));
-        ep.method(MethodC.GET);
+        ep.method(HttpMethodC.GET);
         IDto result = this.execute(ep, null);
         return result == null ? null : (TDocument) result;
     }

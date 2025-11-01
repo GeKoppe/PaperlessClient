@@ -6,8 +6,8 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.dmsextension.paperless.client.http.ActionC;
-import org.dmsextension.paperless.client.http.MethodC;
+import org.dmsextension.paperless.client.http.PaperlessActionC;
+import org.dmsextension.paperless.client.http.HttpMethodC;
 import org.dmsextension.paperless.client.templates.IDto;
 import org.dmsextension.paperless.client.templates.TCustomFieldTemplate;
 import org.dmsextension.paperless.client.templates.TSpecifiedSearchResult;
@@ -30,12 +30,12 @@ public class CustomFieldEndpoint extends PaperlessEndpoint {
     /**
      * Allowed methods on this endpoint
      */
-    private static final List<MethodC> methods = new ArrayList<>(List.of(MethodC.GET, MethodC.POST));
+    private static final List<HttpMethodC> methods = new ArrayList<>(List.of(HttpMethodC.GET, HttpMethodC.POST));
     /**
      * Resource for this endpoint
      */
     private static final String endpoint = "custom_fields/";
-    private MethodC method;
+    private HttpMethodC method;
 
     /**
      * Default constructor
@@ -52,7 +52,7 @@ public class CustomFieldEndpoint extends PaperlessEndpoint {
      */
     @Override
     public Request buildRequest() throws Exception {
-        if (this.method.equals(MethodC.POST)) {
+        if (this.method.equals(HttpMethodC.POST)) {
             this.logger.info("Post method not allowed without giving a body");
             throw new IllegalStateException("Post method not allowed without a body");
         }
@@ -74,7 +74,7 @@ public class CustomFieldEndpoint extends PaperlessEndpoint {
      */
     @Override
     public Request buildRequest(@NotNull IDto body) throws Exception {
-        if (this.method.equals(MethodC.GET)) {
+        if (this.method.equals(HttpMethodC.GET)) {
             this.logger.info("Body not needed when using get, deferring to " + this.getClass().getMethod("buildRequest"));
             return buildRequest();
         }
@@ -106,7 +106,7 @@ public class CustomFieldEndpoint extends PaperlessEndpoint {
             return null;
         }
         IDto res;
-        if (this.method.equals(MethodC.GET)) {
+        if (this.method.equals(HttpMethodC.GET)) {
             Type type = Types.newParameterizedType(TSpecifiedSearchResult.class, TCustomFieldTemplate.class);
             JsonAdapter<TSpecifiedSearchResult<TCustomFieldTemplate>> adapter = this.getMoshi().adapter(type);
             res = adapter.fromJson(response.body().string());
@@ -118,17 +118,17 @@ public class CustomFieldEndpoint extends PaperlessEndpoint {
     }
 
     @Override
-    public List<MethodC> getMethods() {
+    public List<HttpMethodC> getMethods() {
         return methods;
     }
 
     @Override
-    public void action(@NotNull ActionC action) {
+    public void action(@NotNull PaperlessActionC action) {
         this.logger.info("Method not supported on this endpoint");
     }
 
     @Override
-    public void method(@NotNull MethodC method) {
+    public void method(@NotNull HttpMethodC method) {
         if (!methods.contains(method)) {
             this.logger.info("Method {} not allowed on endpoint {}", method, this);
             throw new IllegalArgumentException("Method " + method + " not allowed on endpoint " + this);
