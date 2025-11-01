@@ -73,7 +73,7 @@ import java.util.List;
  *     </tr>
  * </table>
  */
-public class SingleDocumentEndpoint extends ParameterEndpoint implements IParametrizedEndpoint {
+public class SingleDocumentEndpoint extends ParameterEndpoint {
     /**
      * Logger
      */

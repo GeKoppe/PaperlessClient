@@ -2,10 +2,8 @@ package org.dmsextension.paperless.client.utils;
 
 import com.github.jknack.handlebars.Template;
 import org.dmsextension.paperless.client.PaperlessClient;
-import org.dmsextension.paperless.client.endpoints.EndpointFactory;
 import org.dmsextension.paperless.client.endpoints.SingleDocumentEndpoint;
 import org.dmsextension.paperless.client.http.HttpMethodC;
-import org.dmsextension.paperless.client.templates.TCustomFieldTemplate;
 import org.dmsextension.paperless.client.templates.TCustomFieldValue;
 import org.dmsextension.paperless.client.templates.TDocument;
 import org.junit.jupiter.api.Assertions;

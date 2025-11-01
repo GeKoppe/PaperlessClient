@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Endpoint for uploading documents to paperless-ngx
  */
-public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoint {
+public class DocumentUploadEndpoint extends PaperlessEndpoint {
     /**
      * Logger
      */
@@ -35,6 +35,7 @@ public class DocumentUploadEndpoint extends PaperlessEndpoint implements IEndpoi
     /**
      * Endpoint resource
      */
+    @SuppressWarnings("unused")
     private static final String endpoint = "documents/post_document";
 
     /**

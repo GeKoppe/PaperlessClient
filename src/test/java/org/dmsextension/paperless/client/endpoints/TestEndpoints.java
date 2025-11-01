@@ -70,6 +70,8 @@ public class TestEndpoints {
             fail(ex);
         }
     }
+    
+    @SuppressWarnings("unchecked")
     @Test
     public void testEndpointWithQuery() {
         DocumentEndpoint ep = EndpointFactory.documentEndpoint(client.getUrl());
@@ -85,6 +87,7 @@ public class TestEndpoints {
                 fail();
                 return;
             }
+            
             docs = (TSpecifiedSearchResult<TDocument>) result;
         } catch (Exception ex) {
             fail(ex);

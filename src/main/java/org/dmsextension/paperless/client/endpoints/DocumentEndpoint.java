@@ -36,6 +36,7 @@ public class DocumentEndpoint extends PaperlessEndpoint {
     /**
      * Method to execute
      */
+    @SuppressWarnings("unused")
     private HttpMethodC method;
     /**
      * Default constructor

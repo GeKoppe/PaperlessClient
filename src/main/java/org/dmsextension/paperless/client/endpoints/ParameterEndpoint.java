@@ -2,12 +2,10 @@ package org.dmsextension.paperless.client.endpoints;
 
 import com.github.jknack.handlebars.Template;
 import org.dmsextension.paperless.client.utils.CustomHandlebars;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -57,6 +55,7 @@ public abstract class ParameterEndpoint extends PaperlessEndpoint implements IPa
      * @throws IOException If handlebars can't compile the string.
      */
     protected String parseEndpoint(String endpoint) throws IOException {
+        logger.info("Templating endpoint with path params");
         Template template = this.handlebars.compileInline(this.getBaseUrl() + endpoint);
         return template.apply(this.params);
     }
